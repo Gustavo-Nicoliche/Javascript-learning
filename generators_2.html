@@ -1,0 +1,70 @@
+<html>
+    <body>
+        <script>
+            // Função generator que cria um fluxo de conversação interativo
+            function* conversar() {  
+                // 'yield' pausa a execução da função e retorna o valor. O próximo 'next()' reinicia daqui.
+                let opcao = yield 'E ai, tudo bem?'; // 'yield' retorna a mensagem inicial e espera um valor para 'opcao'
+                
+                if (opcao == 'sim') { 
+                    yield 'Ótimo, fico feliz!'; // Mensagem quando a resposta é 'sim'
+                    opcao = yield 'Como posso te ajudar? Quer uma piada?'; // Pergunta adicional
+
+                    if (opcao == 'sim') {
+                        // Fetch busca o arquivo 'dados/piadas.json' para obter uma piada aleatória
+                        fetch('dados/piadas.json')
+                            .then(resposta => resposta.json()) // Converte a resposta do servidor em JSON
+                            .then(piadas => {
+                                let idx = Math.floor(Math.random() * 10) - 1; // Seleciona um índice aleatório
+                                idx = idx < 0 ? 0 : idx; // Garante que o índice seja válido (não negativo)
+                                let piada = piadas[idx]; // Seleciona a piada correspondente
+
+                                console.log(piada.piada); // Mostra a piada no console
+
+                                // Exibe a resposta da piada após 4 segundos
+                                setTimeout(() => {
+                                    console.log(piada.resposta);
+                                    console.log('kkkkkk muito boa né!');
+                                }, 4000);
+                            });
+
+                        // Mensagem após a piada
+                        yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente';
+
+                    } else {
+                        // Mensagem alternativa se o usuário não quiser ouvir uma piada
+                        yield 'Digite 1 para compras, 2 para vendas';
+                    }
+                } else {
+                    // Mensagens para quando a resposta inicial não for 'sim'
+                    yield 'Respire fundo e tenha paciência';
+                    yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente';
+                }
+            }
+
+            // Criando o objeto iterator da função generator
+            let conversa = conversar(); 
+        
+            // Função chamada ao clicar no botão "Avançar"
+            function acao() {
+                // Obtém o valor inserido no campo de texto com o ID 'resposta'
+                let resposta = document.getElementById('resposta').value;
+                // Passa o valor inserido como argumento para a função generator
+                let iteracao = conversa.next(resposta);
+                // A cada execução, o generator retorna o próximo valor
+                console.log(iteracao.value); // Exibe a mensagem retornada no console
+            
+                if(iteracao.done) {
+                    document.getElementById('teste').style.display = 'none'
+                }// esconde os botoes e inputs apos a finalização da conversa
+            }
+        </script>
+
+        <div id="teste">
+            <!-- Botão que avança para a próxima etapa da conversa -->
+            <button type="button" onclick="acao()">Avançar</button>
+            <!-- Campo de entrada onde o usuário digita a resposta -->
+            Resposta: <input type="text" id="resposta">
+        </div>
+    </body>
+</html>

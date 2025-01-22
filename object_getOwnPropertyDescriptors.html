@@ -1,0 +1,48 @@
+<html>
+<body>
+    <script>
+
+        let objeto = {
+            nome: 'joao',
+            profissional: {
+                site: 'joao.com.br',
+                profissao: 'programador',
+            },
+            hobbies: [
+                { id: 1, hobby: 'fazer trilhas'},
+                { id: 2, hobby: 'dormir'},
+            ],
+            pais: 'Brasil'
+
+        }
+
+        /*console.log(Object.getOwnPropertyDescriptors(objeto))
+
+        // assim impedimos que o valor da propriedade em questão seja modificada
+        // Descritor writable : true - o valor da propriedade pode ser modificada.
+        Object.defineProperty(objeto, 'nome', {
+            value: 'joao',
+            writable: false
+        }) 
+
+        for(let propriedade in objeto) {
+            console.log(propriedade, objeto[propriedade])
+        }
+
+        // desativa a visibilidade da propriedade em umlaço de repetição
+        Object.defineProperty(objeto, 'hobbies', {
+            enumerable: false
+        }) 
+        Object.defineProperty(objeto, 'profissional', {
+            enumerable: false
+        }) */
+
+        // indica que a propriedade nao pode ser removida ou deletada de um objeto, quando o CONFIGURABLE é False. Não podemos modificar os descritpres exceto a mudança de writable para false
+        console.log(Object.getOwnPropertyDescriptors(objeto))
+
+        Object.defineProperty(objeto, 'pais', {
+            configurable: false
+        })
+   </script>
+</body>
+</html>

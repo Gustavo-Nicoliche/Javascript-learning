@@ -1,0 +1,60 @@
+<html>
+    <body>
+        <script>
+            let promessa = new Promise((resolve, reject) => {
+
+                setTimeout(() => {
+                    
+                    let resposta_da_requisicao = {}
+
+                    if(true) {
+
+                        resposta_da_requisicao = {
+                            codigo: 1050,
+                            erro: 'Falha de autorização'
+                        }
+
+                        reject(resposta_da_requisicao)
+                    }
+
+                    resposta_da_requisicao = {
+                        0: { id: 1, nome: 'Joao'},
+                        1: { id: 2, nome: 'Jose'},
+                        2: { id: 3, nome: 'Maria'},
+                    }
+
+                    resolve(resposta_da_requisicao)
+            
+                }, 4000)
+            
+            }).then(dados => {
+                console.log('Operação sequencial:', dados)
+
+                return 'Parametro 1 para o then 2'
+            }).then(param => {
+                console.log('Then numero 2', param)
+            }).then(() => {
+                console.log('Then numero 3')
+            }).then(() => {
+                console.log('Then numero 4')
+
+                return  'parametro capturado no Then'
+            }).catch(erro => {
+                console.log('Operação sequencial (Catch)', erro)
+
+                return 'Parametro capturado no catch e enviado para o Then seguinte'
+            }).then(param=> {
+                console.log('Then numero 5', param)
+            }).then(()=> {
+                console.log('Then numero 6')
+            })
+
+           
+                 
+        </script>
+
+        <div id="teste">
+           
+        </div>
+    </body>
+</html>

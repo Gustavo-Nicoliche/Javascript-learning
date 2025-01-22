@@ -1,0 +1,30 @@
+<html>
+<body>
+    <script>
+        
+        //orçamento pessoal
+        let obj = {
+            2021: {
+                janeiro: {
+                    pessoal: 2000,
+                    casa: 1500,
+                    investimento: 1000,
+                },
+                fevereiro: {
+                    pessoal: 1800,
+                    casa: 1600,
+                    investimento: 1800,
+                }
+            }
+        }
+        // como seria feito o teste previo de existencia de março nos meses de 2021
+        if(console.log(obj['2021'].marco)) {
+        console.log(obj['2021'].janeiro.pessoal)
+        }
+        // com Optional chaining
+        console.log(obj['2021'].marco?.pessoal)
+        console.log('teste')
+
+    </script>
+</body>
+</html>

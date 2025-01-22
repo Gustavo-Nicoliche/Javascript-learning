@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <script>
+            let resposta = {}
+
+            // usado em processos de requisições HTTP
+            let promessa = new Promise((resolve, reject) => {
+                try{
+
+                    //throw new Error('Opa, houve um erro')
+
+                    setTimeout(() => {
+                        resposta = { dados: { mensagem: 'recuperamos os dados com sucesso'}}
+                        resolve('Sucesso')
+                    }, 3000)
+
+                } catch(e){
+                    
+                    setTimeout(() => {
+                        reject(e)
+                    }, 3000)
+
+                }
+            })
+
+            console.log(promessa)
+
+            setTimeout(() => {
+                console.log(promessa)
+                console.log(resposta)
+            }, 5000)
+
+        </script>
+
+        <div id="teste">
+           
+        </div>
+    </body>
+</html>

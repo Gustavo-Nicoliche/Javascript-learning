@@ -1,0 +1,39 @@
+<html>
+<body>
+    <div id="teste"></div>
+    <script>
+            //utilizando destructuring no contexto de funçao com array
+
+            let array = [10, 20, 30, 40]
+
+            /*function teste([a, b]) { // destructuring array na funcao
+                console.log(a, b)
+            }
+
+            function teste([a, b, , c]){ // pulando valores
+                console.log(a, b, c)
+            }
+
+            funcion teste([a, b, c, d = 100]){ // criando parametros padroes
+
+            }
+
+            // teste(array0], array[1]) como seria normalmente, sem destructuring
+            //teste(array)*/
+
+            // AGORA COM OBJETO
+            
+            let obj = {
+                a: 10,
+                b: 20,
+                c: 30,
+                d: 40
+            }
+            
+            function teste2({b, c}) {
+                console.log(b, c)
+            }
+            teste2(obj)
+    </script>
+</body>
+</html>

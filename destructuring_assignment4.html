@@ -1,0 +1,20 @@
+<html>
+<body>
+    <div id="teste"></div>
+    <script>    
+
+        //array em rest
+
+        let array = [10, 20, 30, 40]
+        let [a, ...x] = array // condensou os valores de 20, 30 e 40 na variavel x
+        console.log(a, x)
+
+        // OBJETO
+
+        let obj = { a:10, b: 20, c: 30, d: 40}
+        let {h, ...resto} = obj
+        console.log(h, resto)
+
+    </script>
+</body>
+</html>

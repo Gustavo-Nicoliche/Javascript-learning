@@ -1,0 +1,29 @@
+<html>
+<body>
+    <script>
+
+        //Achatamento dos níveis de um array
+
+        let nomes = [
+            'Joçao, José, Maria',
+            'Sandra, Paulo',
+            'Antonia, Fernanda, Marcos',
+        ]
+
+        console.log(nomes)
+
+        let nomesMap = nomes.map(item => {
+            return item.split(',')
+        })
+
+        console.log(nomesMap)
+
+        let nomesFlatMap = nomes.flatMap(item => {
+            return item.split(',')
+        })
+
+        consle.log(nomesFlatMap)
+        
+    </script>
+</body>
+</html>

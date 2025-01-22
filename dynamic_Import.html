@@ -1,0 +1,14 @@
+<html>
+<body>
+    <script type="module">
+
+        import {saudacao, getEnderecobyCEP } from './import/li.mjs'
+
+        console.log(saudacao())
+        
+        getEnderecobyCEP('08725280')
+            .then(response => response.json())
+
+    </script>
+</body>
+</html>

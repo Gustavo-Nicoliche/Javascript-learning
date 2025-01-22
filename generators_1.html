@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <div id="teste"></div>
+        <script>
+            function* testeGenerator() {
+                yield 'teste1' //fazendo com que o yield retorne uma string, cada chamada de next retornará um valor, sendo  a string em questão e o valor booleano de DONE
+                // se a execução do generator tiver acabado, o booleano será true, caso contrario, false.
+                yield 'teste2' // onde o YIELD é colocado, o codigo fica aguardando a confirmaçao do next para prosseguir com o codigo
+                yield 'teste3'
+                return 'teste 4'
+            }
+
+            let meuGenerator = testeGenerator() // a variavel recebe um objeto itarator.
+            
+            console.log(meuGenerator.next())
+            console.log('--------')
+            console.log(meuGenerator.next())
+            console.log('--------')
+            console.log(meuGenerator.next())
+            console.log('--------')
+            console.log(meuGenerator.next())
+
+        </script>
+    </body>
+</html>

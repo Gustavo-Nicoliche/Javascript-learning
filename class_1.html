@@ -1,0 +1,22 @@
+<html>
+<body>
+    <div id="teste"></div>
+    <script>
+
+        class Pessoa {   //TAG para criação de classes e deve ter a primeira letra  em Uppercase, maiuscula, e se houver mais palavras, continuidade em CamelCase.
+            constructor() { // definir atributos
+                this.nome = 'joao' // adicionar atributos para a classe
+                this.idade = 45
+            }
+
+            saudacao() {
+                console.log(`Olá, meu nome é ${this.nome}`)
+            }
+        }
+
+        let pessoa = new Pessoa()// criacao de objeto 
+        pessoa.saudacao()
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<body>
+    <script>
+        
+       let v1 = 10
+       let v2 = null // (null ou undefined)
+
+       //atribuição logica nula
+       v1 ??= 50 // será feita a atribuição caso o valor original de v1 seja nulo ou indefinido
+       v2 ??= 100 //ou seja somente neste caso.
+
+       console.log(v1, v2)
+
+        let carro = {
+            marca: 'volks'
+        }
+
+        carro.marca ??= 'cherry'
+        carro.modelo ??= 'Tcross'
+        carro.ano ??= '2021'
+
+        // como os atributos "modelo e "ano não existem, o Nullish assignment os cria e faz a atribuiçao solicitada
+
+        let arr = ['uva', 'joao', null, undefined, 5, []]
+        arr.forEach((item, indice) => {
+            arr[indice] ??= 'não informado'
+        }) // atribuira a string acima aos valores nulos ou nao informados.
+
+        console.log(arr)
+
+    </script>
+</body>
+</html>

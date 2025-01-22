@@ -1,0 +1,20 @@
+<html>
+<body>
+    <div id='teste'></div>
+    <script>
+        
+        //destructuring assignment no contexto de ARRAY
+
+        let frutas = ['abacaxi', 'uva', 'mamao', 'pera'] // cria um array chamado FRUTAS
+        //let a = frutas [0] // cria uma variavel A e atribui a possição 1 do array FRUTAS
+        //console.log(a)
+
+        let [a, b, , c] = frutas  // para usar o Destructuring, usamos colchetes
+        /* dentro do destructuring indicamos a variavel onde sera atribuidos 
+        e as posições dos valores a serem atribuidos SEQUENCIALMENTE */
+
+        let coisas = [['abacaxi', 'uva', 'pera', 'mamao'],['José', 'Maria']]
+        let [,[,x]] = coisas //quando um array tem 2 dimensões
+    </script>
+</body>
+</html>

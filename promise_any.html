@@ -1,0 +1,25 @@
+<html>
+<body>
+    <script>
+        
+        const p1 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve('p1'), 3000)
+        })
+        const p2 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve('p2'), 2000)
+        })
+        const p3 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve('p3'), 4000)
+        })
+
+        //Os possiveis REJECT serão ignorados. Caso todas sejam reiejtadas ocorre um erro.
+
+        Promise.any([p1,p2,p3])
+            .then((resolvida) => {
+                console.log(resolvida)
+            })
+
+
+    </script>
+</body>
+</html>

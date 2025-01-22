@@ -1,0 +1,37 @@
+<html>
+<body>
+    <div id='teste'></div>
+    <script>
+        
+        //destructuring assignment no contexto de OBJETOS
+
+        let produto = { // criacao do objeto
+            descricao: 'notebook',
+            preco: 2500,
+            detalhes:{
+                fabricante: 'Abc',
+                modelo: 'Xyz'
+            }
+
+        }
+        let { descricao, preco } = produto // obter dados especificos dentro do objeto
+        console.log(descricao, preco)
+
+        //para renomear as variaveis basta utilizar ":" e o nome que deseja:
+
+        let { descricao: d, preco: p } = produto
+        console.log(descricao, preco)
+
+        //trabalhar com valores deafult para lidar com atributos undefined
+        let { descricao: d, preco: p = 0, desconto = 5 } = produto
+        console.log(descricao, preco)
+        // na variavel preco, como ja havia um atributo informado, o valor default nao se aplica, somente no DESCONTO, que nao foi definido
+
+        //extrair atributos secundarios de objetos pertencentes a atributos primarios
+        let { descricao, detalhes: { fabricante, modelo}} = produto
+        console.log(descricao, fabricante, modelo)
+
+        
+    </script>
+</body>
+</html>

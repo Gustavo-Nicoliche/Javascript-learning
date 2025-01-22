@@ -1,0 +1,29 @@
+<hotml>
+    <body>
+        <div id="teste"></div>
+        <script>
+            //contexto spread - usado para expandir
+
+            //string
+            let tituloArtigo = 'como utilizar o operador rest/spread'
+            console.log(tituloArtigo) // apresenta o texto no console
+            console.log(...tituloArtigo) // com o operador de spread cada caractere vira uma string unica
+            console.log([...tituloArtigo]) // traz a string expandida para um Array ( fazend cada caractere virar uma posição do array)
+            console.log({...tituloArtigo}) // em uma estrutura de objeto, fazendo cada caractere virando um atributo
+
+            //ARRAY
+
+            let listaCursos1 = ['nodejs e MongoDB', 'Angular']
+            let listaCursos2 = ['solid','laravel']
+            
+            let listacompleta = [...listaCursos2, ...listaCursos1]
+            // Spread fez cada lista ser incluida na lista criada, e expressará cada curso em sequencia
+
+            //OBJETO
+            let pessoa = { nome: 'Pedro', idade: '32'}
+            let cadastrocompleto = { endereço : 'Rua Abc', ...pessoa}
+
+            console.log(cadastrocompleto)
+        </script>
+    </body>
+</hotml>
